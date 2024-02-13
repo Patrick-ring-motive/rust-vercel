@@ -1,0 +1,9 @@
+/home/runner/rust-vercel/target/debug/deps/lambda_runtime-80625f32bb88c9f6.rmeta: /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/lib.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/deserializer.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/requests.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/types.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/streaming.rs
+
+/home/runner/rust-vercel/target/debug/deps/lambda_runtime-80625f32bb88c9f6.d: /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/lib.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/deserializer.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/requests.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/types.rs /home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/streaming.rs
+
+/home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/lib.rs:
+/home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/deserializer.rs:
+/home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/requests.rs:
+/home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/types.rs:
+/home/runner/rust-vercel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/lambda_runtime-0.8.2/src/streaming.rs:

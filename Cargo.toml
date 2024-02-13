@@ -1,22 +1,33 @@
-[workspace]
-resolver = "2"
-members = [
-    "crates/vercel_runtime",
-    "crates/vercel_runtime_macro",
-    "crates/vercel_runtime_router",
-    "examples/cron",
-    "examples/nextjs",
-    "examples/simple",
-    "examples/route-merge",
-]
+[package]
+name = "simple_runtime_demo"
+version = "0.1.0"
+edition = "2021"
 
-exclude = [
-    "test/fixtures/01-include-files",
-    "test/fixtures/02-with-utility",
-    "test/fixtures/03-with-function",
-    "test/fixtures/04-with-parameter",
-    "test/fixtures/05-with-similar-entrypaths",
-    "test/fixtures/06-with-toolchain-override",
-    "test/fixtures/07-with-cargo-configuration",
-]
+[dependencies]
+tokio = { version = "1", features = ["macros"] }
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = [
+    "fmt",
+] }
+serde = { version = "1.0.188", features = ["derive"] }
+serde_json = { version = "1.0.106", features = ["raw_value"] }
+serde_derive = "1.0.188"
+rand = "0.8.5"
+url = "2.4.1"
+vercel_runtime = "1.1.0"
+# vercel_runtime = { version = "1.1.0", path = "../../crates/vercel_runtime" }
 
+[lib]
+path = "src-rs/lib.rs"
+
+[[bin]]
+name = "simple"
+path = "api/simple.rs"
+
+[[bin]]
+name = "complex"
+path = "api/complex.rs"
+
+[[bin]]
+name = "_id_"
+path = "api/user/[id].rs"

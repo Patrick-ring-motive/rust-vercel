@@ -1,4 +1,6 @@
-import { orderBy } from 'lodash';
+import {
+  orderBy
+} from 'lodash';
 
 const CatchPriority = {
   Static: 0,
@@ -24,11 +26,11 @@ interface ParsedRoute {
 export function parseRoute(filepath: string): ParsedRoute {
   const route = filepath.endsWith('.rs') ? filepath.slice(0, -3) : filepath;
   const segments = route.split('/');
-  const result = segments.reduce<{
+  const result = segments.reduce < {
     catchType: null | number;
     src: string[];
     searchParams: URLSearchParams;
-  }>(
+  } > (
     (acc, segment) => {
       // Catch all route
       if (segment.startsWith('[...') && segment.endsWith(']')) {
@@ -58,8 +60,7 @@ export function parseRoute(filepath: string): ParsedRoute {
       acc.src.push(segment);
 
       return acc;
-    },
-    {
+    }, {
       catchType: null,
       src: [],
       searchParams: new URLSearchParams(),
@@ -91,7 +92,7 @@ export function generateRoutes(files: string[]): Route[] {
     ['asc', 'desc'],
   );
 
-  return orderedRoutes.map<Route>((r) => ({
+  return orderedRoutes.map < Route > ((r) => ({
     src: r.src,
     dest: r.dest,
     path: r.path,

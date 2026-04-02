@@ -1,6 +1,9 @@
 import random from 'random';
 import shishua from 'shishua';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type {
+  NextApiRequest,
+  NextApiResponse
+} from 'next';
 
 interface Data {
   runtime: 'node';
@@ -11,7 +14,7 @@ interface Data {
 
 export default function handler(
   _req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse < Data > ,
 ): void {
   const t0 = performance.now();
 

@@ -1,4 +1,6 @@
-import { generateRoutes } from './routes';
+import {
+  generateRoutes
+} from './routes';
 
 describe('generateRoutes', () => {
   it('should filter out entry point route', () => {

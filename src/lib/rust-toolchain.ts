@@ -1,12 +1,16 @@
-import { debug } from '@vercel/build-utils';
+import {
+  debug
+} from '@vercel/build-utils';
 import execa from 'execa';
 
-async function downloadRustToolchain(): Promise<void> {
+async function downloadRustToolchain(): Promise < void > {
   try {
     await execa(
       `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y`,
-      [],
-      { shell: true, stdio: 'inherit' },
+      [], {
+        shell: true,
+        stdio: 'inherit'
+      },
     );
   } catch (err) {
     let message = 'Unknown Error';
@@ -17,9 +21,12 @@ async function downloadRustToolchain(): Promise<void> {
   }
 }
 
-export const installRustToolchain = async (): Promise<void> => {
+export const installRustToolchain = async (): Promise < void > => {
   try {
-    await execa(`rustup -V`, [], { shell: true, stdio: 'ignore' });
+    await execa(`rustup -V`, [], {
+      shell: true,
+      stdio: 'ignore'
+    });
     debug('Rust Toolchain is already installed, skipping download');
   } catch (err) {
     await downloadRustToolchain();

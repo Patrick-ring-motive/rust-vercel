@@ -121,8 +121,10 @@ interface Rs2 {
 
 export async function getCargoMetadata(
   options: execa.Options,
-): Promise<CargoMetadataRoot> {
-  const { stdout: cargoMetaData } = await execa(
+): Promise < CargoMetadataRoot > {
+  const {
+    stdout: cargoMetaData
+  } = await execa(
     'cargo',
     ['metadata', '--format-version', '1'],
 
@@ -133,17 +135,18 @@ export async function getCargoMetadata(
 }
 
 interface CargoConfig {
-  env: Record<string, any>;
+  env: Record < string,
+  any > ;
   cwd: string;
 }
 
 interface CargoBuildTarget {
-  name?: string;
-  path?: string;
+  name ? : string;
+  path ? : string;
 }
 
 interface CargoToml {
-  bin?: CargoBuildTarget[];
+  bin ? : CargoBuildTarget[];
 }
 
 interface CargoWorkspace {
@@ -153,8 +156,10 @@ interface CargoWorkspace {
 
 export async function findCargoWorkspace(
   config: CargoConfig,
-): Promise<CargoWorkspace> {
-  const { stdout: projectDescriptionStr } = await execa(
+): Promise < CargoWorkspace > {
+  const {
+    stdout: projectDescriptionStr
+  } = await execa(
     'cargo',
     ['locate-project'],
     config,
@@ -170,20 +175,20 @@ export async function findCargoWorkspace(
 
 interface CargoBuildConfiguration {
   build: {
-    target?: string;
-    'target-dir'?: string;
+    target ? : string;
+    'target-dir' ? : string;
   };
-  target: Record<
+  target: Record <
     string,
-    {
-      linker?: string;
-    }
-  >;
+  {
+    linker ? : string;
+  } >
+  ;
 }
 
 export async function findCargoBuildConfiguration(
   workspace: CargoWorkspace,
-): Promise<CargoBuildConfiguration | null> {
+): Promise < CargoBuildConfiguration | null > {
   const configPath = path.join(
     path.dirname(workspace.root),
     '.cargo/config.toml',
@@ -201,7 +206,9 @@ export function findBinaryName(
   workspace: CargoWorkspace,
   entryPath: string,
 ): string {
-  const { bin } = workspace.toml;
+  const {
+    bin
+  } = workspace.toml;
   if (bin) {
     const relativePath = path.relative(path.dirname(workspace.root), entryPath);
     const entry = bin.find((binEntry) => binEntry.path === relativePath);

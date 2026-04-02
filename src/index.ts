@@ -1,5 +1,8 @@
 import path from 'node:path';
-import { existsSync, readFileSync } from 'node:fs';
+import {
+  existsSync,
+  readFileSync
+} from 'node:fs';
 import {
   FileFsRef,
   debug,
@@ -11,8 +14,12 @@ import {
   getLambdaOptionsFromFunction,
 } from '@vercel/build-utils';
 import execa from 'execa';
-import { installRustToolchain } from './lib/rust-toolchain';
-import type { Runtime } from './lib/runtime';
+import {
+  installRustToolchain
+} from './lib/rust-toolchain';
+import type {
+  Runtime
+} from './lib/runtime';
 import {
   getCargoMetadata,
   findBinaryName,
@@ -25,15 +32,24 @@ import {
   gatherExtraFiles,
   runUserScripts,
 } from './lib/utils';
-import { generateRoutes, parseRoute } from './lib/routes';
+import {
+  generateRoutes,
+  parseRoute
+} from './lib/routes';
 
-type RustEnv = Record<'RUSTFLAGS' | 'PATH', string>;
+type RustEnv = Record < 'RUSTFLAGS' | 'PATH', string > ;
 
 async function buildHandler(
   options: BuildOptions,
-): Promise<BuildResultV2Typical> {
+): Promise < BuildResultV2Typical > {
   const BUILDER_DEBUG = Boolean(process.env.VERCEL_BUILDER_DEBUG ?? false);
-  const { files, entrypoint, workPath, config, meta } = options;
+  const {
+    files,
+    entrypoint,
+    workPath,
+    config,
+    meta
+  } = options;
 
   await installRustToolchain();
 
@@ -71,8 +87,7 @@ async function buildHandler(
       'cargo',
       ['build', '--bin', binaryName].concat(
         BUILDER_DEBUG ? ['--verbose'] : ['--quiet', '--release'],
-      ),
-      {
+      ), {
         cwd: workPath,
         env: rustEnv,
         stdio: 'inherit',
@@ -85,7 +100,9 @@ async function buildHandler(
 
   debug(`Building \`${binaryName}\` for \`${process.platform}\` completed`);
 
-  let { target_directory: targetDirectory } = await getCargoMetadata({
+  let {
+    target_directory: targetDirectory
+  } = await getCargoMetadata({
     cwd: workPath,
     env: rustEnv,
   });
@@ -107,7 +124,10 @@ async function buildHandler(
   const lambda = new Lambda({
     files: {
       ...extraFiles,
-      [bootstrap]: new FileFsRef({ mode: 0o755, fsPath: bin }),
+      [bootstrap]: new FileFsRef({
+        mode: 0o755,
+        fsPath: bin
+      }),
     },
     handler: bootstrap,
     runtime: 'provided',
@@ -123,11 +143,18 @@ async function buildHandler(
     const routes = generateRoutes(Object.keys(handlerFiles));
 
     return {
-      output: routes.reduce<Record<string, Lambda>>((acc, route) => {
+      output: routes.reduce < Record < string,
+      Lambda >> ((acc, route) => {
         acc[route.path] = lambda;
         return acc;
       }, {}),
-      routes: routes.map(({ src, dest }) => ({ src, dest })),
+      routes: routes.map(({
+        src,
+        dest
+      }) => ({
+        src,
+        dest
+      })),
     };
   }
 
@@ -137,7 +164,10 @@ async function buildHandler(
     output: {
       [route.path]: lambda,
     },
-    routes: [{ src: route.src, dest: route.dest }],
+    routes: [{
+      src: route.src,
+      dest: route.dest
+    }],
   };
 }
 
@@ -154,7 +184,9 @@ function isBundledRoute(): boolean {
 const runtime: Runtime = {
   version: 2,
   build: buildHandler,
-  prepareCache: async ({ workPath }) => {
+  prepareCache: async ({
+    workPath
+  }) => {
     debug(`Caching \`${workPath}\``);
     const cacheFiles = await glob('target/**', workPath);
     // Convert this into a reduce
@@ -172,7 +204,7 @@ const runtime: Runtime = {
     }
     return cacheFiles;
   },
-  shouldServe: async (options): Promise<boolean> => {
+  shouldServe: async (options): Promise < boolean > => {
     debug(`Requested ${options.requestPath} for ${options.entrypoint}`);
 
     if (isBundledRoute()) {
@@ -183,4 +215,9 @@ const runtime: Runtime = {
   },
 };
 
-export const { version, build, prepareCache, shouldServe } = runtime;
+export const {
+  version,
+  build,
+  prepareCache,
+  shouldServe
+} = runtime;

@@ -1,1 +1,56 @@
-{"rustc":11937038941823275974,"features":"[\"codec\", \"default\", \"io\", \"tracing\"]","target":7116873124493883817,"profile":12206360443249279867,"path":4504699695848943384,"deps":[[975949821777799453,"tokio",false,2833633744943324821],[8864587453055022689,"pin_project_lite",false,12051018512490395279],[10358777096871976486,"tracing",false,12024207794961196197],[14133539909871685996,"futures_core",false,13248311594100269433],[16008099193544558814,"futures_sink",false,11756833539517750509],[16303129265998467830,"bytes",false,5837910256141607644]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/tokio-util-65d1b0c0a134681f/dep-lib-tokio-util"}}],"rustflags":[],"metadata":5856372730329936516,"config":2202906307356721367,"compile_kind":0}
+{
+  "rustc": 11937038941823275000,
+  "features": "[\"codec\", \"default\", \"io\", \"tracing\"]",
+  "target": 7116873124493883000,
+  "profile": 12206360443249280000,
+  "path": 4504699695848943600,
+  "deps": [
+    [
+      975949821777799400,
+      "tokio",
+      false,
+      2833633744943324700
+    ],
+    [
+      8864587453055023000,
+      "pin_project_lite",
+      false,
+      12051018512490396000
+    ],
+    [
+      10358777096871977000,
+      "tracing",
+      false,
+      12024207794961197000
+    ],
+    [
+      14133539909871686000,
+      "futures_core",
+      false,
+      13248311594100270000
+    ],
+    [
+      16008099193544559000,
+      "futures_sink",
+      false,
+      11756833539517751000
+    ],
+    [
+      16303129265998467000,
+      "bytes",
+      false,
+      5837910256141608000
+    ]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tokio-util-65d1b0c0a134681f/dep-lib-tokio-util"
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 5856372730329937000,
+  "config": 2202906307356721400,
+  "compile_kind": 0
+}

@@ -1,1 +1,39 @@
-{"rustc":11937038941823275974,"features":"[\"default\"]","declared_features":"","target":6531790061002566669,"profile":10243973527296709326,"path":3670378054103229591,"deps":[[3930354675071354477,"percent_encoding",false,4306986164111250669],[9650145818529708916,"idna",false,18193719323266828296],[14000076424775413182,"form_urlencoded",false,17055256063408149523]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/url-eeb0aadf16a9c362/dep-lib-url"}}],"rustflags":[],"metadata":10988327246995194721,"config":2202906307356721367,"compile_kind":0}
+{
+  "rustc": 11937038941823275000,
+  "features": "[\"default\"]",
+  "declared_features": "",
+  "target": 6531790061002567000,
+  "profile": 10243973527296709000,
+  "path": 3670378054103229400,
+  "deps": [
+    [
+      3930354675071354400,
+      "percent_encoding",
+      false,
+      4306986164111250400
+    ],
+    [
+      9650145818529708000,
+      "idna",
+      false,
+      18193719323266828000
+    ],
+    [
+      14000076424775414000,
+      "form_urlencoded",
+      false,
+      17055256063408150000
+    ]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/url-eeb0aadf16a9c362/dep-lib-url"
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 10988327246995194000,
+  "config": 2202906307356721400,
+  "compile_kind": 0
+}

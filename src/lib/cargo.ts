@@ -182,8 +182,7 @@ interface CargoBuildConfiguration {
     string,
   {
     linker ? : string;
-  } >
-  ;
+  } > ;
 }
 
 export async function findCargoBuildConfiguration(
